@@ -1,0 +1,158 @@
+:root {
+  --bg-color: rgb(0, 0, 0);
+  --secondary-color: #ffffff;
+  --main-orange: #FF8C00;
+  --main-red: #EA4335;
+
+  /* --main-blue: #7EF5E5;
+  --main-violet: #e0abfd; */
+}
+
+@font-face {
+  font-family: 'Metal Mania';
+  src: url(/public/assets/fonts/MetalMania-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Serif Text';
+  src: url(/public/assets/fonts/DMSerifText-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: black;
+  padding: 0 50px;
+}
+
+html::-webkit-scrollbar{
+  display: none;
+}
+
+.nav-list {
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  margin-bottom: 50px;
+}
+
+.print-button {
+  background-color: blue;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.category-name {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.ingredient-list {
+  display: flex;
+  align-items: center;
+  gap: 46px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  border-bottom: 5px solid #1e1e1e;
+}
+
+.row-2 {
+  display: flex;
+  align-items: start;
+}
+
+.wrapper {
+  padding: 25px;
+  background-color: #1e1e1e;
+  margin-right: 25px;
+}
+
+.wrapper p {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.wrapper input{
+  height: 60px;
+  border-radius: 10px;
+  padding: 10px;
+  width: 350px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.wrapper input:focus {
+  outline: none;
+}
+
+.buttons {
+  display: flex;
+  width: 350px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttons button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 114px;
+  height: 60px;
+  font-size: 24px;
+  background-color: white;
+}
+
+.buttons button:nth-child(1) {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.buttons button:nth-child(3) {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.buttons button::after {
+  content: 'л';
+}
+
+.buttons button.active {
+  background-image: linear-gradient(var(--main-orange), var(--main-red));
+  color: white;
+}
+
+.gpt-window{
+  background-color: #1e1e1e;
+  width: 100%;
+  height: 500px;
+}
+
+@media(width < 800px) {
+  .ingredient-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .ingredient-list::-webkit-scrollbar{
+    display: none;
+  }
+}
