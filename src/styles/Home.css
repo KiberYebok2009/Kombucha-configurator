@@ -1,0 +1,130 @@
+/* Блок с названием, описанием и кнопкой навигации */
+
+.to-configurator {
+    background-color: #1e1e1e;
+    width: 100%;
+    padding: 150px 0 150px 100px ;
+    border-radius: 10px;
+    background-image: url('/public/assets/images/beautiful-clouds-digital-art.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 10;
+}
+
+.to-configurator::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 10px;
+    background-color: rgba(0 0 0 / 0.4);
+}
+
+.info{
+    margin-bottom: 25px;
+}
+
+.kombucha-name{
+    font-size: 64px;
+    color: white;
+    font-family: Metal Mania;
+    font-weight: 100;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 5px black;
+    text-wrap: nowrap;
+}
+
+.project-description{
+    font-size: 24px;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+    text-wrap: wrap;
+}
+
+/* Слайдер */
+
+.popular {
+    margin-top: 25px;
+    width: 100%;
+    height: 600px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+/* Фильтры */
+
+.filter-catalog {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.filters {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    width: 390px;
+    max-height: 600px;
+    padding: 20px;
+    position: sticky;
+    top: 100px;
+    overflow-y: auto;
+}
+
+.filters::-webkit-scrollbar{
+    display: none;
+}
+
+/*---------------------input------------------------*/
+
+.custom-input {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.find {
+    background-color: #444444;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    width: 100%;
+}
+
+.clear {
+    background-color: #444444;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    width: 100%;
+}
+
+.custom-input input{
+    width: 230px;
+    height: 50px;
+    background-color: #444444;
+    border: none;
+}
+
+.custom-input input:active{
+    border: none;
+}
+
+.custom-input input::placeholder{
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+/*---------------------Каталог----------------------*/
+
+.catalog-wrapper {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+

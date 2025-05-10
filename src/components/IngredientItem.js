@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/IngredientItem.css'; // Подключаем CSS файл
+import '../styles/IngredientItem.css';
 
 const IngredientItem = ({ ingredient, isAdded, onClick }) => {
   return (

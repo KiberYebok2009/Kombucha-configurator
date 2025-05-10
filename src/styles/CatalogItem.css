@@ -1,0 +1,120 @@
+.card-wrapper {
+    width: 260px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-image{
+    width: 100%;
+    height: 200px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.card-info{
+    width: 100%;
+    padding: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+.card-name{
+    min-height: 48px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Кнопки объёма */
+
+.volume-buttons {
+    display: flex;
+    width: 240px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+  
+.volume-buttons button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    width: 78px;
+    height: 40px;
+    font-size: 18px;
+    background-color: white;
+}
+  
+.volume-buttons button:nth-child(1) {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.volume-buttons button:nth-child(3) {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+  
+.volume-buttons button::after {
+    content: 'л';
+}
+  
+.volume-buttons button.active {
+    background-image: linear-gradient(var(--main-color), var(--second-color));
+    color: white;
+}
+
+.card-ingredients{
+    min-height: 60px;
+}
+
+/* Ингредиенты */
+
+.ingredient-item-name{
+    font-size: 16px;
+}
+
+/* Цена и кнопка */
+
+.price-and-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-and-button button.add {
+    background-image: linear-gradient(var(--main-color), var(--second-color));
+    color: white;
+    transform: translateY(60px);
+}
+
+.price-and-button button.remove {
+    background-color: white;
+    color: black;
+}
+
+.price-and-button button{
+    padding: 15px 20px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+.card-wrapper:hover .price-and-button button.add{
+    transform: translateY(0);
+}
+
+.price-and-button p{
+    font-size: 18px;
+    font-weight: 600;
+}
