@@ -3,7 +3,7 @@
 .to-configurator {
     background-color: #1e1e1e;
     width: 100%;
-    padding: 150px 0 150px 100px ;
+    padding: 120px 0 120px 100px ;
     border-radius: 10px;
     background-image: url('/public/assets/images/beautiful-clouds-digital-art.jpg');
     background-position: center;
@@ -26,10 +26,12 @@
 
 .info{
     margin-bottom: 25px;
+    max-width: 900px;
 }
 
 .kombucha-name{
     font-size: 64px;
+    margin-bottom: 20px;
     color: white;
     font-family: Metal Mania;
     font-weight: 100;
@@ -39,10 +41,11 @@
 }
 
 .project-description{
-    font-size: 24px;
+    font-size: 22px;
     color: white;
     text-shadow: 5px 5px 5px black;
     text-wrap: wrap;
+    font-weight: 600;
 }
 
 /* Слайдер */
@@ -106,12 +109,14 @@
     border: none;
 }
 
-.custom-input input:active{
+.custom-input input{
+    outline: none;
     border: none;
+    color: white;
 }
 
 .custom-input input::placeholder{
-    font-size: 20px;
+    /* font-size: 20px; */
     text-align: center;
     color: white;
 }
@@ -127,4 +132,3 @@
     flex-wrap: wrap;
     gap: 25px;
 }
-

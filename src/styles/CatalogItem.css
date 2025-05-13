@@ -35,7 +35,7 @@
 
 .volume-buttons {
     display: flex;
-    width: 240px;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Home.css';
 import StarButton from '../components/starButton';
 import FilterItem from '../components/filter';
@@ -6,7 +6,14 @@ import CatalogItem from '../components/CatalogItem';
 
 function Home() {
 
-  const [cart, setCart] = useState([]);
+  //----------------------------------Обновлено
+
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  //----------------------------------Обновлено
 
   const categories = [
 		{id: 1, name: 'Ягоды'},
@@ -83,7 +90,29 @@ function Home() {
     },
   ];
 
-  // const cart = [];
+  //----------------------------------Обновлено
+
+  // Обновление для того, чтобы не забывать выбранный объём при перезаходе в каталог
+
+  const [catalogItems, setCatalogItems] = useState(() => {
+    const savedCatalog = localStorage.getItem('catalogItems');
+    return savedCatalog ? JSON.parse(savedCatalog) : CatalogItems;
+  });
+
+  //----------------------------------Обновлено
+
+
+
+
+
+  //-----------------------------------NEW
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('catalogItems', JSON.stringify(catalogItems)); // Необходимо для того, чтобы при возвращении не забывался объём выбранных наборов
+  }, [cart, catalogItems]);
+
+  //-----------------------------------NEW
 
   const handleItemtClick = (product) => {
 		if (cart.some((item) => item.id === product.id)) {
@@ -93,8 +122,6 @@ function Home() {
 		}
     console.log(cart)
 	};
-
-  const [catalogItems, setCatalogItems] = useState(CatalogItems);
 
   const handleVolumeChange = (itemId, newVolume) => {
     setCatalogItems(prevItems =>
@@ -111,8 +138,9 @@ function Home() {
       <section className='to-configurator'>
         <div className='info'>
           <h1 className='kombucha-name'>Kombucha-configurator</h1>
-          <p className='project-description'>Лучший сервис для покупки уникальных <br></br>
-          наборов для приготовления настоек</p>
+          <p className='project-description'>Откройте для себя мир домашних настоек, где каждый вкус - это ваша личная история!
+          Наш конфигуратор - это ваша творческая лаборатория, где вы сами выбираете ингредиенты, сочетаете ароматы и создаёте уникальные напитки, которые удивят даже самых искушённых гурманов.
+          </p>
         </div>
         <StarButton/>
       </section>
