@@ -63,14 +63,14 @@
 .filter-catalog {
     display: flex;
     gap: 25px;
-    margin-top: 25px;
+    margin: 25px 0;
 }
 
 .filters {
     background-color: #1e1e1e;
     border-radius: 10px;
     width: 390px;
-    max-height: 600px;
+    max-height: calc(100vh - 100px);
     padding: 20px;
     position: sticky;
     top: 100px;
@@ -127,8 +127,9 @@
     background-color: #1e1e1e;
     border-radius: 10px;
     width: 100%;
+    height: fit-content;
     padding: 25px;
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 40px;
 }

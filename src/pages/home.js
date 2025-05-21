@@ -1,137 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/Home.css';
-import StarButton from '../components/starButton';
-import FilterItem from '../components/filter';
+import StarButton from '../components/StarButton';
+import FilterItem from '../components/Filter';
 import CatalogItem from '../components/CatalogItem';
+import { categories, ingredients} from '../data/data';
+import { useCatalog, useCart } from '../hooks/useCatalog';
 
 function Home() {
 
-  //----------------------------------Обновлено
+  const { catalogItems, handleVolumeChange } = useCatalog();
+  const { cart, toggleCartItem } = useCart();
 
-  const [cart, setCart] = useState(() => {
-    const savedCart = localStorage.getItem('cart');
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
+  //------------------------------ФИЛЬТРЫ-------------------------------
 
-  //----------------------------------Обновлено
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
 
-  const categories = [
-		{id: 1, name: 'Ягоды'},
-		{id: 2, name: 'Специи'},
-		{id: 3, name: 'Травы'},
-	];
-
-  const ingredients = [
-		{id: 1, name: 'Клюква', category: 1},
-		{id: 2, name: 'Ежевика', category: 1},
-		{id: 3, name: 'Черника', category: 1},
-		{id: 4, name: 'Облепиха', category: 1},
-		{id: 5, name: 'Крыжовник', category: 1},
-
-		{id: 6, name: 'Корица', category: 2},
-		{id: 7, name: 'Ваниль',category: 2},
-		{id: 8, name: 'Кардамон', category: 2},
-    {id: 9, name: 'Шафран', category: 2},
-
-		{id: 10, name: 'Мята', category: 3},
-		{id: 11, name: 'Шалфей', category: 3},
-	];
-
-  const CatalogItems = [
-    {
-      id: 1, 
-      name: 'Кастом №1',
-      imageUrl: '/assets/images/beautiful-clouds-digital-art.jpg',
-      volume: 1,
-      price: 2000,
-      totalPrice: 2000, 
-      ingredientList: [1,2,3,4,9],
-
-    },
-    {
-      id: 2,
-      imageUrl: '/assets/images/beautiful-clouds-digital-art.jpg',
-      name: 'Кастом №2',
-      volume: 1,
-      price: 2000,
-      totalPrice: 2000, 
-      ingredientList: [1,2,3,4,5],
-
-    },
-    {
-      id: 3,
-      imageUrl: '/assets/images/beautiful-clouds-digital-art.jpg',
-      name: 'Кастом №3',
-      volume: 1,
-      price: 2000,
-      totalPrice: 2000, 
-      ingredientList: [1,2,3,4,5],
-
-    },
-    {
-      id: 4,
-      imageUrl: '/assets/images/beautiful-clouds-digital-art.jpg',
-      name: 'Кастом №4',
-      volume: 1,
-      price: 2000,
-      totalPrice: 2000, 
-      ingredientList: [1,2,3,4,5],
-
-    },
-    {
-      id: 5,
-      imageUrl: '/assets/images/beautiful-clouds-digital-art.jpg',
-      name: 'Кастом №5',
-      volume: 1,
-      price: 2000,
-      totalPrice: 2000, 
-      ingredientList: [1,2,3,4,5],
-
-    },
-  ];
-
-  //----------------------------------Обновлено
-
-  // Обновление для того, чтобы не забывать выбранный объём при перезаходе в каталог
-
-  const [catalogItems, setCatalogItems] = useState(() => {
-    const savedCatalog = localStorage.getItem('catalogItems');
-    return savedCatalog ? JSON.parse(savedCatalog) : CatalogItems;
-  });
-
-  //----------------------------------Обновлено
-
-
-
-
-
-  //-----------------------------------NEW
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-    localStorage.setItem('catalogItems', JSON.stringify(catalogItems)); // Необходимо для того, чтобы при возвращении не забывался объём выбранных наборов
-  }, [cart, catalogItems]);
-
-  //-----------------------------------NEW
-
-  const handleItemtClick = (product) => {
-		if (cart.some((item) => item.id === product.id)) {
-			setCart(cart.filter((cartItem) => cartItem.id !== product.id));
-		} else {
-			setCart([...cart, product]);
-		}
-    console.log(cart)
-	};
-
-  const handleVolumeChange = (itemId, newVolume) => {
-    setCatalogItems(prevItems =>
-      prevItems.map(item =>
-        item.id === itemId
-          ? { ...item, volume: newVolume, totalPrice: item.price * newVolume }
-          : item
-      )
+  const toggleIngredient = (ingredientId) => {
+    setSelectedIngredients(prev => 
+      prev.includes(ingredientId) 
+        ? prev.filter(id => id !== ingredientId) 
+        : [...prev, ingredientId]
     );
   };
+
+  const filteredCatalogItems = catalogItems.filter(item => {
+    if (selectedIngredients.length === 0) return true;
+
+    return selectedIngredients.every(ingId => item.ingredientList.includes(ingId));
+  });
+
 
   return (
     <div style={{ marginTop: '100px' }}>
@@ -163,21 +60,22 @@ function Home() {
                 {ingredients.filter(ingredient => ingredient.category === category.id).map((ingredient) => (
                   <FilterItem
                     key={ingredient.id}
-                    ingredient={ingredient}/>
+                    ingredient={ingredient}
+                    onToggle={() => toggleIngredient(ingredient.id)}/>
                 ))}
               </div>
             </div>
 				))}
         </div>
         <div className='catalog-wrapper'>
-          {catalogItems.map((item) => (
+          {filteredCatalogItems.map((item) => (
             <CatalogItem
               key={item.id}
               item={item}
               ingredients={ingredients}
               isAdded={cart.some((cartItem) => cartItem.id === item.id)}
               onVolumeChange={(newVolume) => handleVolumeChange(item.id, newVolume)}
-              onClick={() => handleItemtClick(item)}/>
+              onClick={() => toggleCartItem(item)}/>
           ))}
         </div>
       </div>
