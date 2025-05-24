@@ -1,0 +1,94 @@
+/* @font-face {
+    font-family: 'Ponomar';
+    src: url(/public/assets/fonts/Ponomar-Regular.ttf);
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  } */
+
+/* @font-face {
+    font-family: 'Yeseva One';
+    src: url(/public/assets/fonts/YesevaOne-Regular.ttf);
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+} */
+
+.ingredient-item {
+    width: 250px;
+    border-radius: 10px;
+}
+
+.active-item {
+    outline: 3px solid var(--main-color);
+    box-shadow: 0 0 25px var(--second-color);
+}
+
+.ingredient-image {
+    width: 250px;
+    height: 165px;
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.ingredient-content {
+    width: 250px;
+    padding: 10px;
+    background-color: white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.ingredient-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.row-3 {
+    display: flex;
+    justify-content: flex-start;
+    height: fit-content;
+    align-items: end;
+}
+
+.ingredient-price{
+    width: fit-content;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.ingredient-weight {
+    width: fit-content;
+    font-size: 16px;
+    color: #444444;
+}
+
+.ingredient-button {
+    margin-left: auto;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    width: 120px;
+    height: 46px;
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.ingredient-button:hover{
+    transform: translateY(-3px);
+}
+
+.ingredient-button.add {
+    background-image: linear-gradient(var(--main-color), var(--second-color));
+}
+
+.ingredient-button.remove {
+    background-color: var(--bg-color);
+}

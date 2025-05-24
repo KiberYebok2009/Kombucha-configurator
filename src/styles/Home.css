@@ -1,0 +1,246 @@
+/* Блок с названием, описанием и кнопкой навигации */
+
+.to-configurator {
+    background-color: #1e1e1e;
+    width: 100%;
+    padding: 120px 100px;
+    border-radius: 10px;
+    background-image: url('/public/assets/images/1023.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 10;
+}
+
+.to-configurator::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 10px;
+    background-color: rgba(0 0 0 / 0.4);
+}
+
+.round {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    background-color: #1e1e1e;
+    outline: 3px solid var(--main-color);
+    box-shadow: 0 0 25px var(--second-color);
+}
+
+.cocktail {
+    position: absolute;
+    top: -28%;
+    left: 7%;
+    width: 300px;
+    height: 350px;
+    background-image: url('/public/assets/images/spicy-michelada-drink-arrangement-table.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 25px black);
+}
+
+.info{
+    margin-bottom: 25px;
+    max-width: 700px;
+}
+
+.kombucha-name{
+    font-size: 64px;
+    margin-bottom: 10px;
+    color: white;
+    font-family: 'Metal Mania';
+    font-weight: 100;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 5px black;
+    text-wrap: wrap;
+}
+
+.project-description{
+    font-size: 22px;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+    text-wrap: wrap;
+    font-weight: 600;
+}
+
+/* Слайдер */
+
+.popular {
+    margin-top: 25px;
+    width: 100%;
+    height: 600px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+/* Фильтры и Каталог */
+
+.filter-catalog {
+    display: flex;
+    gap: 25px;
+    margin: 25px 0;
+}
+
+.filters {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    width: 390px;
+    max-height: calc(100vh - 100px);
+    padding: 20px;
+    position: sticky;
+    top: 100px;
+    overflow-y: auto;
+}
+
+.catalog-wrapper {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    width: 100%;
+    height: fit-content;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+}
+
+.grid-elem {
+    display: flex;
+    justify-content: center;
+}
+
+.filters::-webkit-scrollbar{
+    display: none;
+}
+
+/*---------------------input------------------------*/
+
+.custom-input {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.find {
+    background-color: #444444;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    width: 100%;
+}
+
+.clear {
+    background-color: #444444;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    width: 100%;
+}
+
+.custom-input input{
+    width: 230px;
+    height: 50px;
+    background-color: #444444;
+    border: none;
+}
+
+.custom-input input{
+    outline: none;
+    border: none;
+    color: white;
+}
+
+.custom-input input::placeholder{
+    text-align: center;
+    color: white;
+}
+
+@media (width < 1300px) {
+
+    .to-configurator {
+        padding: 80px 60px;
+    }
+
+    .kombucha-name {
+        font-size: 46px;
+    }
+
+    .project-description{
+        font-size: 20px;
+    }
+
+    .info {
+        max-width: 500px;
+    }
+
+    .round {
+        width: 250px;
+        height: 250px;
+    }
+
+    .cocktail {
+        width: 250px;
+        height: 300px;
+    }
+
+}
+
+@media (width < 1000px) {
+
+    .round {
+        width: 225px;
+        height: 225px;
+    }
+
+    .cocktail {
+        width: 225px;
+        height: 275px;
+    }
+
+    .to-configurator {
+        padding: 60px 40px;
+    }
+
+    .info {
+        max-width: 375px;
+    }
+
+    .kombucha-name {
+        font-size: 32px;
+    }
+
+    .project-description{
+        font-size: 16px;
+    }
+
+    .filter-catalog{
+        flex-direction: column;
+    }
+
+    .filters{
+        width: 100%;
+        position: static;
+    }
+
+    .catalog-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .blocks {
+        display: flex;
+        align-items: flex-start;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+    .custom-input {
+        width: 300px;
+    }
+
+}

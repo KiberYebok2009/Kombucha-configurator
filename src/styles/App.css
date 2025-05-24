@@ -1,0 +1,45 @@
+:root {
+  --bg-color: rgb(0, 0, 0);
+  --secondary-color: #ffffff;
+  --main-color: #FF8C00;
+  --second-color: #EA4335;
+
+  /* --main-blue: #7EF5E5;
+  --main-violet: #e0abfd; */
+}
+
+@font-face {
+  font-family: 'Metal Mania';
+  src: url(/public/assets/fonts/MetalMania-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Serif Text';
+  src: url(/public/assets/fonts/DMSerifText-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: black;
+  padding: 0 50px;
+}
+
+body::selection{
+  background-color: var(--main-color);
+}
+
+html::-webkit-scrollbar{
+  display: none;
+}
