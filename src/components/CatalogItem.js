@@ -22,13 +22,13 @@ const CatalogItem = ({ item, ingredients, isAdded, onClick, onVolumeChange }) =>
                 </div>
                 <div className='card-ingredients'>
                 {item.ingredientList.map((ingredientId, index) => {
-                const ingredient = ingredients.find(ing => ing.id === ingredientId);
-                const name = ingredient ? ingredient.name : 'Неизвестный ингредиент';
-                return (
-                    <span key={index} className="ingredient-item-name">
-                    {name}{index < item.ingredientList.length - 1 ? ', ' : ''}
-                    </span>
-                );
+                    const ingredient = ingredients.find(ing => ing.id === ingredientId);
+                    const name = ingredient ? ingredient.name : 'Неизвестный ингредиент';
+                    return (
+                        <span key={index} className="ingredient-item-name">
+                        {name}{index < item.ingredientList.length - 1 ? ', ' : ''}
+                        </span>
+                    );
                 })}
                 </div>
                 <div className='price-and-button'>
@@ -38,7 +38,7 @@ const CatalogItem = ({ item, ingredients, isAdded, onClick, onVolumeChange }) =>
                         className={`ingredient-button ${isAdded ? 'remove' : 'add'}`}
                     >
                         {isAdded ? 'Удалить' : 'Добавить'}
-                </button>
+                    </button>
                 </div>
             </div>
         </div>

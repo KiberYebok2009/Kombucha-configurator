@@ -41,7 +41,7 @@ export default function Cart() {
               <p>{totalItems} {totalItems === 1 ? 'товар' : 'товара'}</p>
             </div>
             <div className='order-info'>
-              <p>Цена без учёта скидки</p>
+              <p>Цена без скидки</p>
               <p>{totalPrice}₽</p>
             </div>
             <div className='order-info'>

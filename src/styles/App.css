@@ -1,8 +1,8 @@
 :root {
   --bg-color: rgb(0, 0, 0);
   --secondary-color: #ffffff;
-  --main-color: #C68EFD;
-  --second-color: #8F87F1;
+  --main-color: #FF8C00;
+  --second-color: #EA4335;
 
   /* --main-blue: #7EF5E5;
   --main-violet: #e0abfd; */
@@ -19,6 +19,14 @@
 @font-face {
   font-family: 'DM Serif Text';
   src: url(/public/assets/fonts/DMSerifText-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playpen Sans';
+  src: url(/public/assets/fonts/PlaypenSans-Regular.ttf);
   font-style: normal;
   font-weight: 400;
   font-display: swap;

@@ -37,6 +37,7 @@
 .volume-buttons {
     display: flex;
     width: 100%;
+    height: 40px;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -45,9 +46,10 @@
 .volume-buttons button {
     padding: 0;
     margin: 0;
+    outline: none;
     border: none;
     width: 78px;
-    height: 40px;
+    height: 100%;
     font-size: 18px;
     background-color: white;
 }
@@ -118,4 +120,10 @@
 .price-and-button p{
     font-size: 18px;
     font-weight: 600;
+}
+
+@media (width < 1000px) {
+    .card-wrapper {
+        min-width: 260px;
+    }
 }

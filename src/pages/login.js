@@ -33,6 +33,7 @@ export default function Login() {
             <div className="links">
               <div className="alternative google"></div>
               <div className="alternative facebook"></div>
+              <div className="alternative github"></div>
             </div>
 
             <p className="link-to-reg">

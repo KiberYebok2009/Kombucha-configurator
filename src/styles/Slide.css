@@ -1,0 +1,91 @@
+.slide-wrapper {
+    flex: 1 0 100%; /*Растягивает изображение на весь блок*/
+    scroll-snap-align: end; /*Моментальный переход на следующее изображение, а не скролл*/
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px 50px;
+    position: relative;
+    background-color: #1e1e1e;
+}
+
+/* .slide-wrapper:nth-child(1) {
+    background-image: url(/public/assets/images/sea.jpg);
+}
+
+.slide-wrapper:nth-child(2) {
+    background-image: url(/public/assets/images/sea2.jpg);
+}
+
+.slide-wrapper:nth-child(3) {
+    background-image: url(/public/assets/images/sea3.jpg);
+} */
+
+.slide-elem-name {
+    color: white;
+    font-size: 64px;
+    text-shadow: 2px 2px 2px black;
+    margin-bottom: 25px;
+}
+
+.slide-elem-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.slide-elem-ingredients img {
+    width: 120px;
+    height: 120px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+.slide-wrapper .volume-buttons {
+    width: 370px;
+    height: 60px;
+    margin-bottom: 25px;
+}
+
+.slide-wrapper .volume-buttons button {
+    height: 100%;
+    width: 120px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.slide-elem-price {
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+.slide-elem-button {
+    border: none;
+    outline: none;
+    padding: 13px 25px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.slide-elem-button.add {
+    background-image: linear-gradient(var(--main-color), var(--second-color));
+    color: white;
+}
+
+.slide-elem-button.remove {
+    background-color: white;
+    color: black;
+}
+
+.slide-elem-image {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    outline: 3px solid var(--main-color);
+    box-shadow: 0 0 25px var(--second-color);
+}

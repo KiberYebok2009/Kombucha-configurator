@@ -5,9 +5,18 @@ const CartItem = ({ item, initialIngredients}) => {
 
     return (
         <div className='test-box'>
-            <p className='cart-item-name'>Название: {item.name}</p>
-            <p className='cart-item-volume'>Объём: {item.volume}л</p>
-            <p className='cart-item-ingredients-count'>Ингредиенты: {item.ingredientList.length} шт.</p>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
+                <div>
+                    <p className='cart-item-name'>Название: {item.name}</p>
+                    <p className='cart-item-volume'>Объём: {item.volume}л</p>
+                    <p className='cart-item-ingredients-count'>Ингредиенты: {item.ingredientList.length} шт.</p>
+                </div>
+                <button  className ='remove-from-cart' style={{ background: 'none', border: 'none', padding: 0 }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                  </svg>
+                </button>
+            </div>
             <div className='ingredients'>
                 {item.ingredientList.map((ingredient, index) => (
                 <img
@@ -17,10 +26,7 @@ const CartItem = ({ item, initialIngredients}) => {
                 />
                 ))}
             </div>
-            <div className='price-button'>
-                <p className='cart-item-price'>ИТОГ: {item.totalPrice}₽</p>
-                <button>Удалить</button>
-            </div>
+            <p className='cart-item-price'>ИТОГ: {item.totalPrice}₽</p>
         </div>
     );
 };
